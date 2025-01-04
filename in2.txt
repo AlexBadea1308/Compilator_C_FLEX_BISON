@@ -1,0 +1,28 @@
+int a = 10;
+int b = 20;
+
+if (a > b) 
+{
+    printf("a este mai mic decât b");
+} 
+else 
+{
+    printf("a nu este mai mic decât b");
+}
+
+if (a != b) 
+{
+    printf("a este diferit de b");
+}
+
+if (a >= b) 
+{
+    printf("a este mai mare sau egal cu b");
+}
+
+//a=b/0;
+//printf("%d",a);
+
+//c=4;
+float p=3.14f;
+int d=(int)p;

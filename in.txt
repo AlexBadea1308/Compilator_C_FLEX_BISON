@@ -1,0 +1,37 @@
+int a = 10;
+double b = 15.5;
+float c = 7.3f;
+
+
+/*
+printf("Merge baa");
+int a;
+double b;
+float c;
+*/
+
+//printf("Merge");
+
+int x;
+double y;
+float z;
+
+x = 20;
+y = b + 5.5;
+z = c - 2.3;
+
+x =(int)b;
+a = a + x * 2 - 3;
+b = b / 3.5 + y;
+c = (float)(a + b) / 2.5;
+int w = b;
+double t = (double)a / 2;
+float u = (float)t * 1.1f;
+
+printf("Valoarea lui a: %d", a);
+printf("Valoarea lui b: %f", b);
+printf("Valoarea lui c: %f", c);
+
+/*Rez lui a: 37
+Rez lui b: 25.428571
+Rez lui c: 24.971429*/
