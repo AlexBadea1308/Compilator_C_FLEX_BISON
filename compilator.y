@@ -186,7 +186,7 @@ Symbol* symbolTable=nullptr;
 %left TOK_PLUS TOK_MINUS
 %left TOK_MULTIPLY TOK_DIVIDE
 %left TOK_LPAREN TOK_RPAREN 
-%nonassoc UMINUS
+
 %%
 
 program:
@@ -377,7 +377,7 @@ declaration:
         else 
         {
             symbolTable->add($2, INT_TYPE);
-            symbolTable->setValue($2, $4);
+            symbolTable->setValue($2,(int)$4);
             printf("Declaratie: int %s = %d\n", $2, (int)$4);
         }
     }
@@ -427,14 +427,14 @@ assignment:
 
         int type = symbolTable->getType($1);
 
-        if ((type == INT_TYPE && $3 != (int)$3) ||
-            (type == FLOAT_TYPE && (float)$3 != $3)) 
-        {
-            yyerror("Type mismatch in assignment");
-        }
-
         if (hasError)  YYABORT;
-        symbolTable->setValue($1, $3);
+
+        if(symbolTable->getType($1)==INT_TYPE)
+        {
+            symbolTable->setValue($1,(int)$3);
+        }
+        else
+            symbolTable->setValue($1,$3);
 
         if (type == INT_TYPE) 
         {
@@ -508,7 +508,6 @@ expr:
     {
         $$ = (double)((float)$4);
     }
-    | '-' expr %prec UMINUS     { $$ = -$2; }
     ;
 
 
